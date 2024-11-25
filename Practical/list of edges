@@ -1,0 +1,12 @@
+# Define a list of edges for a directed graph
+edges = [
+    (1, 2),  # Edge from 1 to 2
+    (2, 3),  # Edge from 2 to 3
+    (3, 1),  # Edge from 3 to 1
+    (4, 2)   # Edge from 4 to 2
+]
+
+# Print the directed edge list
+print("Directed Edge List:")
+for edge in edges:
+    print(f"From {edge[0]} to {edge[1]}")

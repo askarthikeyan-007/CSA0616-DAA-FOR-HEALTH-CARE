@@ -1,0 +1,16 @@
+cities = []
+
+def add_city(city):
+    cities.append(city)
+
+def remove_city(city):
+    cities.remove(city) if city in cities else None
+
+def display_cities():
+    return cities
+
+# Example usage
+add_city("New York")
+add_city("Los Angeles")
+remove_city("New York")
+print(display_cities())

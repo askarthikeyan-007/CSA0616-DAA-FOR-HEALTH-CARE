@@ -1,0 +1,19 @@
+class GlassesInventory:
+    def _init_(self):
+        self.inventory = []
+
+    def add_glass(self, glass):
+        self.inventory.append(glass)
+
+    def view_inventory(self):
+        return self.inventory
+
+    def remove_glass(self, glass):
+        self.inventory.remove(glass) if glass in self.inventory else None
+
+# Example usage
+inventory = GlassesInventory()
+inventory.add_glass("Ray-Ban Aviator")
+print(inventory.view_inventory())
+inventory.remove_glass("Ray-Ban Aviator")
+print(inventory.view_inventory())

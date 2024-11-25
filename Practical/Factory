@@ -1,0 +1,23 @@
+class Dog:
+    def speak(self):
+        return "Woof!"
+
+class Cat:
+    def speak(self):
+        return "Meow!"
+
+def animal_factory(animal_type):
+    animals = {
+        "dog": Dog,
+        "cat": Cat
+    }
+    return animals.get(animal_type, lambda: None)()  # Returns an instance of the chosen class or None if not found
+
+# Example usage
+animal1 = animal_factory("dog")
+animal2 = animal_factory("cat")
+
+if animal1:
+    print(animal1.speak())  # Output: Woof!
+if animal2:
+    print(animal2.speak())  # Output: Meow!

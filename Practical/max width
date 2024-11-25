@@ -1,0 +1,14 @@
+data = [
+    ["Name", "Age", "City"],
+    ["Alice", 25, "New York"],
+    ["Bob", 30, "Los Angeles"],
+    ["Charlie", 35, "Chicago"]
+]
+
+# Find the max width for each column
+max_widths = [max(len(str(row[i])) for row in data) for i in range(len(data[0]))]
+
+# Format the output to align columns
+for row in data:
+    formatted_row = " | ".join(f"{str(row[i]):<{max_widths[i]}}" for i in range(len(row)))
+    print(formatted_row)

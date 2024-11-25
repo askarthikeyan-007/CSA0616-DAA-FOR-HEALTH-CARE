@@ -1,0 +1,24 @@
+
+import socket
+
+# Server
+def start_server():
+    with socket.socket() as s:
+        s.bind(('localhost', 12345))
+        s.listen()
+        print("Server listening...")
+        conn, addr = s.accept()
+        with conn:
+            print(f"Connected by {addr}")
+            conn.sendall(b'Hello, Client!')
+
+# Client
+def start_client():
+    with socket.socket() as s:
+        s.connect(('localhost', 12345))
+        data = s.recv(1024)
+        print(data.decode())
+
+# Uncomment to run
+# start_server()
+# start_client()

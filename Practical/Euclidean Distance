@@ -1,0 +1,24 @@
+import math
+
+def euclidean_distance(p1, p2):
+    return math.sqrt(sum((p1[i] - p2[i]) ** 2 for i in range(len(p1))))
+
+# Example usage
+p1 = (1, 2)
+p2 = (4, 6)
+print(euclidean_distance(p1, p2))  # Output: 5.0
+
+17. Quick Sort
+
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quick_sort(left) + middle + quick_sort(right)
+
+# Example usage
+arr = [3, 6, 8, 10, 1, 2, 1]
+print(quick_sort(arr))  # Output: [1, 1, 2, 3, 6, 8, 10]

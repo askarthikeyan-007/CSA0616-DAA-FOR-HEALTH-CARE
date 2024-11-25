@@ -1,0 +1,31 @@
+def job_assignment(cost):
+    n = len(cost)  # Number of jobs and workers
+    # We create a list of jobs paired with their costs to each worker
+    assignments = []
+    for i in range(n):
+        for j in range(n):
+            assignments.append((cost[i][j], i, j))  # (cost, job, worker)
+
+    # Sort the assignments by cost (ascending)
+    assignments.sort()
+
+    total_cost = 0
+    workers_assigned = [False] * n  # Track workers that have already been assigned
+    
+    # Assign jobs to workers with the lowest cost
+    for cost_value, job, worker in assignments:
+        if not workers_assigned[worker]:  # If the worker hasn't been assigned yet
+            workers_assigned[worker] = True
+            total_cost += cost_value
+
+    return total_cost
+
+# Example cost matrix: cost[i][j] is the cost of assigning job i to worker j
+cost = [
+    [10, 2, 8],  # Costs for worker 0 to do jobs 0, 1, 2
+    [7, 5, 3],   # Costs for worker 1 to do jobs 0, 1, 2
+    [6, 4, 2]    # Costs for worker 2 to do jobs 0, 1, 2
+]
+
+result = job_assignment(cost)
+print(f"The minimum cost to assign all jobs is: {result}")

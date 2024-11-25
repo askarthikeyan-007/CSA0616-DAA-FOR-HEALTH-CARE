@@ -1,0 +1,7 @@
+string = "Hello, World!"
+
+# Check if "World" is in the string
+if "World" in string:
+    print("Substring found!")
+else:
+    print("Substring not found.")

@@ -1,0 +1,23 @@
+def coin_change(coins, amount):
+    # Sort the coins in descending order to use the largest coin first
+    coins.sort(reverse=True)
+    
+    count = 0  # To count the number of coins used
+    for coin in coins:
+        if amount == 0:
+            break
+        # Use as many coins of the current denomination as possible
+        count += amount // coin
+        amount = amount % coin  # Update the remaining amount
+    
+    if amount != 0:
+        return -1  # If we couldn't make the exact amount, return -1
+    
+    return count
+
+# Example usage:
+coins = [1, 5, 10, 25]  # Available coin denominations (1 cent, 5 cents, etc.)
+amount = 63  # Target amount
+
+result = coin_change(coins, amount)
+print(f"Minimum coins needed: {result}")

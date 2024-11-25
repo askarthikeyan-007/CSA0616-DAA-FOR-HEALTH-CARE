@@ -1,0 +1,6 @@
+def count_frequencies(lst):
+    return {x: lst.count(x) for x in set(lst)}
+
+# Example usage
+frequencies = count_frequencies([1, 2, 2, 3, 3, 3])
+print(frequencies)  # Output: {1: 1, 2: 2, 3: 3}

@@ -1,0 +1,9 @@
+
+def smallest_integer(arr):
+    return min(arr)
+
+# Example usage
+arr = [5, 3, 9, 1]
+print(smallest_integer(arr))  # Output: 1
+
+

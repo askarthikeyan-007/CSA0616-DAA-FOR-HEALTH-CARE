@@ -1,0 +1,29 @@
+import random
+
+def generate_sudoku():
+    def fill_grid():
+        for i in range(9):
+            for j in range(9):
+                if grid[i][j] == 0:
+                    num = random.sample(range(1, 10), 9)
+                    for n in num:
+                        if is_valid(i, j, n):
+                            grid[i][j] = n
+                            if fill_grid():
+                                return True
+                            grid[i][j] = 0
+                    return False
+        return True
+
+    def is_valid(row, col, num):
+        return (num not in grid[row] and
+                num not in [grid[i][col] for i in range(9)] and
+                num not in [grid[i // 3 * 3 + j // 3][i % 3 * 3 + j % 3] for i in range(9) for j in range(9)])
+
+    grid = [[0] * 9 for _ in range(9)]
+    fill_grid()
+    return grid
+
+sudoku = generate_sudoku()
+for row in sudoku:
+    print(row)

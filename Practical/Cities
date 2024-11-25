@@ -1,0 +1,34 @@
+import heapq
+
+def dijkstra(graph, start):
+    # Initialize distances to infinity and start node to 0
+    distances = {node: float('inf') for node in graph}
+    distances[start] = 0
+    priority_queue = [(0, start)]
+    
+    while priority_queue:
+        current_distance, current_node = heapq.heappop(priority_queue)
+        
+        # If the current distance is greater, skip it
+        if current_distance > distances[current_node]:
+            continue
+        
+        for neighbor, weight in graph[current_node]:
+            distance = current_distance + weight
+            
+            # If a shorter path is found
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                heapq.heappush(priority_queue, (distance, neighbor))
+    
+    return distances
+
+# Example graph: Each city is a node, and the weight is the distance between them
+graph = {
+    'A': [('B', 5), ('C', 10)],
+    'B': [('A', 5), ('C', 2)],
+    'C': [('A', 10), ('B', 2)]
+}
+
+start_city = 'A'
+print(dijkstra(graph, start_city))

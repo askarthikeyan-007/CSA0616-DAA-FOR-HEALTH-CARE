@@ -1,0 +1,7 @@
+def lexicographical_sort(words):
+    return sorted(words)
+
+# Example usage
+words = ['banana', 'apple', 'cherry', 'mango']
+sorted_words = lexicographical_sort(words)
+print(sorted_words)

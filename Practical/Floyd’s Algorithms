@@ -1,0 +1,39 @@
+def floyd_warshall(graph):
+    # Number of vertices in the graph
+    num_vertices = len(graph)
+    
+    # Distance matrix initialization
+    distance = [[float("inf")] * num_vertices for _ in range(num_vertices)]
+    
+    # Initialize distance with graph values
+    for i in range(num_vertices):
+        for j in range(num_vertices):
+            distance[i][j] = graph[i][j]
+    
+    # The distance from a vertex to itself is 0
+    for i in range(num_vertices):
+        distance[i][i] = 0
+    
+    # Main algorithm
+    for k in range(num_vertices):
+        for i in range(num_vertices):
+            for j in range(num_vertices):
+                # Update the distance matrix
+                distance[i][j] = min(distance[i][j], distance[i][k] + distance[k][j])
+    
+    return distance
+
+# Example usage: Graph as adjacency matrix
+INF = float("inf")
+graph = [
+    [0, 3, INF, INF],
+    [2, 0, INF, INF],
+    [INF, 7, 0, 1],
+    [6, INF, INF, 0]
+]
+
+shortest_paths = floyd_warshall(graph)
+
+# Print the result
+for row in shortest_paths:
+    print(row)

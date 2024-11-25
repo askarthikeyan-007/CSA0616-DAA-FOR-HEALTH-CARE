@@ -1,0 +1,28 @@
+def can_fill_board(board, tile):
+    rows, cols = len(board), len(board[0])
+    tile_rows, tile_cols = len(tile), len(tile[0])
+    for i in range(rows - tile_rows + 1):
+        for j in range(cols - tile_cols + 1):
+            fit = True
+            for x in range(tile_rows):
+                for y in range(tile_cols):
+                    if board[i+x][j+y] != tile[x][y]:
+                        fit = False
+                        break
+                if not fit:
+                    break
+            if fit:
+                return True
+    return False
+
+# Example usage
+board = [
+    [1, 1, 0],
+    [1, 1, 0],
+    [0, 0, 0]
+]
+tile = [
+    [1, 1],
+    [1, 1]
+]
+print(can_fill_board(board, tile))  # Output: True

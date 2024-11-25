@@ -1,0 +1,18 @@
+def unique_permutations(nums):
+    def backtrack(path, remaining):
+        if not remaining:
+            result.append(path)
+        for i in range(len(remaining)):
+            if i > 0 and remaining[i] == remaining[i - 1]:
+                continue
+            backtrack(path + [remaining[i]], remaining[:i] + remaining[i+1:])
+    
+    result = []
+    nums.sort()
+    backtrack([], nums)
+    return result
+
+# Example usage
+nums = [1, 1, 2]
+print(unique_permutations(nums))  # Output: [[1, 1, 2], [1, 2, 1], [2, 1, 1]]
+

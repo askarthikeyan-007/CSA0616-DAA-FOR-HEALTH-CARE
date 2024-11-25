@@ -1,0 +1,8 @@
+def haystack(hay, needle):
+    return hay.find(needle)
+
+# Example usage
+hay = "hello world"
+needle = "world"
+print(haystack(hay, needle))  # Output: 6
+

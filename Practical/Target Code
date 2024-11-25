@@ -1,0 +1,5 @@
+def target_function(x):
+    return x * x
+
+result = target_function(5)
+print(result)

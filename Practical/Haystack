@@ -1,0 +1,10 @@
+def find_needle(haystack, needle):
+    if needle in haystack:
+        return f"'{needle}' found in the haystack!"
+    else:
+        return f"'{needle}' not found in the haystack."
+
+# Example usage
+haystack = "The quick brown fox jumps over the lazy dog."
+needle = "fox"
+print(find_needle(haystack, needle))

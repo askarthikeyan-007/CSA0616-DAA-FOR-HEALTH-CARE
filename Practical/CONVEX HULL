@@ -1,0 +1,12 @@
+
+from scipy.spatial import ConvexHull
+import matplotlib.pyplot as plt
+
+points = [[0, 0], [1, 1], [2, 0], [1, -1], [0, 1]]
+hull = ConvexHull(points)
+
+plt.plot(*zip(*points), 'o')
+plt.plot(zip([points[i] for i in hull.vertices]), 'r-')
+plt.show()
+
+

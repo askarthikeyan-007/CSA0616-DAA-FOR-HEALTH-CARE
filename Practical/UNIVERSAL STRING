@@ -1,0 +1,15 @@
+
+import re
+
+def is_universal_string(s):
+    # Regular expression pattern that matches any string
+    pattern = '.*'
+    
+    # Use re.match to check if the string fits the pattern
+    return re.match(pattern, s) is not None
+
+# Example usage
+test_strings = ["Hello", "12345", "", "A quick brown fox!"]
+for test_str in test_strings:
+    print(f"'{test_str}' is universal: {is_universal_string(test_str)}")
+

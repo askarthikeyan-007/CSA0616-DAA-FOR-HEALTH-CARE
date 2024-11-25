@@ -1,0 +1,14 @@
+class Robot:
+    def move_forward(self):
+        print("Moving forward")
+
+    def move_backward(self):
+        print("Moving backward")
+
+    def turn(self, direction):
+        print(f"Turning {direction}")
+
+robot = Robot()
+robot.move_forward()
+robot.move_backward()
+robot.turn("left")

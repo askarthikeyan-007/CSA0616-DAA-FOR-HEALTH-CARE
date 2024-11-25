@@ -1,0 +1,19 @@
+class CoinArray:
+    def _init_(self):
+        self.coins = []
+
+    def add_coin(self, value):
+        self.coins.append(value)
+
+    def remove_coin(self, value):
+        self.coins.remove(value) if value in self.coins else None
+
+    def total_value(self):
+        return sum(self.coins)
+
+# Example usage
+coin_array = CoinArray()
+coin_array.add_coin(1)
+coin_array.add_coin(5)
+coin_array.remove_coin(1)
+print(coin_array.total_value())  # Output: 5

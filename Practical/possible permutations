@@ -1,0 +1,13 @@
+import itertools
+
+def generate_permutations(lst):
+    # Use itertools.permutations to generate all permutations
+    perms = itertools.permutations(lst)
+    
+    # Print each permutation
+    for perm in perms:
+        print(perm)
+
+# Example usage
+lst = [1, 2, 3]
+generate_permutations(lst)

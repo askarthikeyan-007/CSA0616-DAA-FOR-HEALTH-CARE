@@ -1,0 +1,6 @@
+import numpy as np
+jobs = np.array([1, 2, 3, 4, 5])
+def process_job(job):
+    return job ** 2  # Example processing: squaring the job
+results = [process_job(job) for job in jobs]
+print(results)

@@ -1,0 +1,6 @@
+
+def maximum_capacity(container_volumes):
+    return sum(container_volumes)
+containers = [10, 20, 30, 40]
+total_capacity = maximum_capacity(containers)
+print(f"The maximum capacity is: {total_capacity}")
